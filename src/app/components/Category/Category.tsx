@@ -1,21 +1,48 @@
 'use client';
 import { QuestionsApi } from '@/app/api';
-import { useState, useEffect } from 'react';
-import { Category as CategoryType } from '@/app/types';
+import { useState, useEffect, JSX } from 'react';
+import { Question as TQuestion, UiState } from '@/app/types';
+import { Question } from '../Categories/Question/Question';
 
-export function Category({ slug }: { slug: string }) {
-  const [category, setCategory] = useState<CategoryType | null>(null);
+export function Category({ slug }: { slug: string }): JSX.Element {
+  const [uiState, setUiState] = useState<UiState>('initial');
+  const [questions, setQuestions] = useState<TQuestion[]>([]);
   useEffect(() => {
     async function fetchData() {
+      setUiState('loading');
       const api = new QuestionsApi();
-      const response = await api.getCategory(slug);
-      setCategory(response);
+      const response = await api.getQuestions(slug);
+      if (!response) {
+        setUiState('error');
+        return;
+      }
+      if (response.data.length === 0) {
+        setUiState('empty');
+      } else {
+        setUiState('data');
+        setQuestions(response.data);
+      }
     }
     fetchData();
   }, [slug]);
-  if (!category) {
-    return <p>Flokkur fannst ekki</p>;
-  }
 
-  return <p>{JSON.stringify(category)}</p>;
+  switch (uiState) {
+    case 'loading':
+      return <p>Sæki flokk...</p>;
+    case 'error':
+      return <p>Villa við að sækja flokk...</p>;
+    case 'empty':
+      return <p>Engar gögn fundust</p>;
+    case 'data':
+      return (
+        <div>
+          {questions.map((question) => (
+            <Question key={question.id} question={question} />
+          ))}
+        </div>
+      );
+    case 'initial':
+    default:
+      return <p>Þú hefur ekki valið flokk</p>;
+  }
 }

@@ -1,8 +1,13 @@
-import { Category, Paginated } from './types';
+import { Category, Paginated, Question } from './types';
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:8000';
+
+async function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 export class QuestionsApi {
   async fetchFromApi<T>(url: string): Promise<T | null> {
+    await sleep(1000);
     let response: Response | undefined;
     try {
       response = await fetch(url);
@@ -12,6 +17,10 @@ export class QuestionsApi {
     }
     if (!response.ok) {
       console.error('non 200 status from API', url);
+      return null;
+    }
+    if (response.status === 404) {
+      console.error('404 from API', url);
       return null;
     }
     let json: unknown;
@@ -24,7 +33,7 @@ export class QuestionsApi {
     return json as T;
   }
   async getCategory(slug: string): Promise<Category | null> {
-    const url = BASE_URL + `/categories${slug}`;
+    const url = BASE_URL + `/categories/${slug}`;
     const response = await this.fetchFromApi<Category | null>(url);
     return response;
   }
@@ -35,6 +44,14 @@ export class QuestionsApi {
     const response = await this.fetchFromApi<Paginated<Category>>(url);
 
     //TODO hér gæti ég staðfest gerð gagna
+    return response;
+  }
+
+  async getQuestions(
+    categorySlug: string
+  ): Promise<Paginated<Question> | null> {
+    const url = BASE_URL + `/questions?category=${categorySlug}`;
+    const response = await this.fetchFromApi<Paginated<Question>>(url);
     return response;
   }
 }
