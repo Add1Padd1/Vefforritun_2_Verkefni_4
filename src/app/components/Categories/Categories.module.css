@@ -1,3 +1,55 @@
 .cats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  min-height: 50vh;
+}
+
+.cats h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.loading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #007bff;
+  margin-top: 20px;
+}
+
+.cats ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 50%;
+}
+
+.cats li {
+  margin-bottom: 15px;
+  padding: 15px 20px;
+  font-size: 2rem;
+  text-align: center;
+  background-color: lightgoldenrodyellow;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.cats li:hover {
   background-color: beige;
+  transform: scale(1.05);
+}
+
+.cats li a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }

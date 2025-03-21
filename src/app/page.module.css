@@ -2,3 +2,16 @@
   max-width: 500px;
   margin: 0 auto;
 }
+.forsida {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: flex-box;
+  min-height: 50vh;
+  font-size: 3rem;
+  font-weight: bold;
+}

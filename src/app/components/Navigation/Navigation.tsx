@@ -5,10 +5,10 @@ export default function Navigation() {
   return (
     <nav className={Styles.nav}>
       <ul>
-        <li>
+        <li className={Styles.navComponent}>
           <Link href="/">Forsíða</Link>
         </li>
-        <li>
+        <li className={Styles.navComponent}>
           <Link href="/flokkar">Flokkar</Link>
         </li>
       </ul>

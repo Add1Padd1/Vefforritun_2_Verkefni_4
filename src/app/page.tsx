@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <Navigation />
-      forsíða!
+      <p className={styles.forsida}>Klikkaðu á dálkana fyrir ofan</p>
     </div>
   );
 }

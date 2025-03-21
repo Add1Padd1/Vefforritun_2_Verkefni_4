@@ -2,7 +2,8 @@
 import { QuestionsApi } from '@/app/api';
 import { useState, useEffect, JSX } from 'react';
 import { Question as TQuestion, UiState } from '@/app/types';
-import { Question } from '../Categories/Question/Question';
+import { Question } from '../Question/Question';
+import Styles from './Category.module.css';
 
 export function Category({ slug }: { slug: string }): JSX.Element {
   const [uiState, setUiState] = useState<UiState>('initial');
@@ -28,7 +29,7 @@ export function Category({ slug }: { slug: string }): JSX.Element {
 
   switch (uiState) {
     case 'loading':
-      return <p>Sæki flokk...</p>;
+      return <p className={Styles.loading}>Sæki flokk...</p>;
     case 'error':
       return <p>Villa við að sækja flokk...</p>;
     case 'empty':
