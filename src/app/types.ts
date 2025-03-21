@@ -23,3 +23,11 @@ export type Question = {
   answers: Answer[];
   category: Category;
 };
+
+export type QuestionToPost = {
+  id: number;
+  text: string;
+  slug: string;
+  answers: Answer[];
+  category: Category;
+};

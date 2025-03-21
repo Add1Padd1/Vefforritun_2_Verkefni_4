@@ -39,7 +39,9 @@ export default function Categories({ title }: Props) {
       {uiState === 'loading' && (
         <p className={Styles.loading}>Sæki flokka...</p>
       )}
-      {uiState === 'error' && <p>Villa við að sækja flokka...</p>}
+      {uiState === 'error' && (
+        <p className={Styles.error}>Villa við að sækja flokka...</p>
+      )}
       {uiState === 'data' && (
         <ul>
           {categories?.data.map((category, index) => (

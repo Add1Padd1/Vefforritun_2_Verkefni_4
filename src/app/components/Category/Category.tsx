@@ -4,6 +4,7 @@ import { useState, useEffect, JSX } from 'react';
 import { Question as TQuestion, UiState } from '@/app/types';
 import { Question } from '../Question/Question';
 import Styles from './Category.module.css';
+import { QuestionPost } from '../QuestionPost/QuestionPost';
 
 export function Category({ slug }: { slug: string }): JSX.Element {
   const [uiState, setUiState] = useState<UiState>('initial');
@@ -40,6 +41,7 @@ export function Category({ slug }: { slug: string }): JSX.Element {
           {questions.map((question) => (
             <Question key={question.id} question={question} />
           ))}
+          <QuestionPost categorySlug={slug} />
         </div>
       );
     case 'initial':

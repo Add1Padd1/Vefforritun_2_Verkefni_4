@@ -23,6 +23,13 @@
   color: #007bff;
   margin-top: 20px;
 }
+.error {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: red;
+  margin-top: 20px;
+}
 
 .cats ul {
   list-style-type: none;

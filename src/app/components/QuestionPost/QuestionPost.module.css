@@ -1,0 +1,169 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.makeQuestion {
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: lightgrey;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: auto;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.field label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.field input[type='text'] {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease;
+}
+
+.field input[type='text']:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.answers {
+  margin-top: 20px;
+}
+
+.answer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  max-width: 50%;
+}
+
+.answer input[type='text'] {
+  flex: 1;
+}
+
+.answer input[type='radio'] {
+  margin-left: 10px;
+}
+
+.addButton {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  background-color: green;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.addButton:hover {
+  background-color: #0056b3;
+}
+.submitButton {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.addButton:hover,
+.submitButton:hover {
+  background-color: #0056b3;
+}
+
+.submitted {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #e6ffe6;
+  border: 1px solid #b3ffb3;
+  border-radius: 5px;
+}
+.submittedContainer {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f0f8ff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.submittedTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.submittedQuestion {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+}
+
+.submittedQuestionTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+.submittedAnswers {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.submittedAnswer {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+.correctAnswer {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.incorrectAnswer {
+  background-color: #f8d7da;
+  color: #721c24;
+}
